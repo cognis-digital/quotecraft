@@ -40,3 +40,4 @@
 2024-06-29T12:22:02  docs(ci): add pagination to large reports
 2024-07-14T19:39:09  test(fixtures): improve error messages with context
 2024-07-30T14:56:16  refactor: I have altered the code. pray I don't alter it further
+2024-08-14T09:13:23  feat(config): fix off-by-one in line numbers
