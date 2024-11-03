@@ -44,3 +44,4 @@
 2024-09-18T16:30:30  refactor(scoring): respect .gitignore when walking
 2024-10-03T11:47:37  perf: micro-optimization
 2024-10-18T18:04:44  ci(output): extract the scorer
+2024-11-03T13:21:51  build(config): pin the test dependencies
