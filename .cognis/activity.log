@@ -49,3 +49,4 @@
 2024-12-05T15:55:05  test(io): lower memory on big inputs
 2024-12-20T10:12:12  style(report): improve the demo scenario
 2025-01-22T17:29:19  chore: feed the FOUNDRY
+2025-02-08T12:46:26  fix(format): clarify the README quickstart
