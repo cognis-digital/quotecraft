@@ -54,3 +54,4 @@
 2025-03-11T14:20:40  chore: routine maintenance
 2025-03-26T09:37:47  build(scan): short-circuit on first critical
 2025-04-11T16:54:54  chore(parser): add --fail-on threshold handling
+2025-05-15T11:11:01  docs(engine): respect .gitignore when walking
