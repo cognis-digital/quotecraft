@@ -59,3 +59,4 @@
 2025-06-15T13:45:15  feat(cli): add a JSON schema for output
 2025-06-30T08:02:22  fix(rules): guard against ReDoS in patterns
 2025-07-16T15:19:29  refactor(deps): bump the dev toolchain
+2025-08-01T10:36:36  perf(docs): lower memory on big inputs
