@@ -63,3 +63,4 @@
 2025-08-16T17:53:43  ci(core): add a regression fixture
 2025-09-19T12:10:50  chore(tests): make timestamps timezone-aware
 2025-10-05T19:27:57  docs(ci): handle empty and malformed input
+2025-10-20T14:44:04  test(fixtures): add usage examples to help
