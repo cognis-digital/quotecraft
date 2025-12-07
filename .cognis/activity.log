@@ -66,3 +66,4 @@
 2025-10-20T14:44:04  test(fixtures): add usage examples to help
 2025-11-05T09:01:11  feat(output): add a fast path for the common case
 2025-11-20T16:18:18  feat(config): normalize unicode before matching
+2025-12-07T11:35:25  refactor(scoring): memoize repeated lookups
