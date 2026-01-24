@@ -68,3 +68,4 @@
 2025-11-20T16:18:18  feat(config): normalize unicode before matching
 2025-12-07T11:35:25  refactor(scoring): memoize repeated lookups
 2026-01-09T18:52:32  chore: BLACKBOOK redaction pass
+2026-01-24T13:09:39  ci(output): dedupe overlapping findings
