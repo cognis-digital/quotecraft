@@ -70,3 +70,4 @@
 2026-01-09T18:52:32  chore: BLACKBOOK redaction pass
 2026-01-24T13:09:39  ci(output): dedupe overlapping findings
 2026-02-09T08:26:46  chore(detect): handle CRLF line endings
+2026-02-25T15:43:53  fix: handle empty input gracefully
