@@ -74,3 +74,4 @@
 2026-03-13T10:00:00  test(io): add color + severity icons
 2026-03-28T17:17:07  style(report): add a --quiet mode
 2026-04-12T12:34:14  feat: with great power comes great test coverage
+2026-05-16T19:51:21  refactor(parser): tune severity weights
