@@ -75,3 +75,4 @@
 2026-03-28T17:17:07  style(report): add a --quiet mode
 2026-04-12T12:34:14  feat: with great power comes great test coverage
 2026-05-16T19:51:21  refactor(parser): tune severity weights
+2026-06-01T14:08:28  refactor(engine): assert exit codes in tests
