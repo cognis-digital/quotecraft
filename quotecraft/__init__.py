@@ -1,32 +1,11 @@
-"""QUOTECRAFT - YAML to branded PDF proposal / quote / SOW generator.
-
-Standard-library only. No third-party dependencies.
-"""
-from .core import (
-    Proposal,
-    LineItem,
-    parse_yaml,
-    load_proposal,
-    build_proposal,
-    compute_totals,
-    render_pdf,
-    render_text,
-    QuoteError,
-)
-
-TOOL_NAME = "quotecraft"
-TOOL_VERSION = "1.0.0"
-
-__all__ = [
-    "Proposal",
-    "LineItem",
-    "parse_yaml",
-    "load_proposal",
-    "build_proposal",
-    "compute_totals",
-    "render_pdf",
-    "render_text",
-    "QuoteError",
-    "TOOL_NAME",
-    "TOOL_VERSION",
-]
+"""quotecraft — part of the Cognis Neural Suite."""
+try:  # re-export the tool's public API + identity from core
+    from quotecraft.core import *  # noqa: F401,F403
+except Exception:  # pragma: no cover
+    pass
+try:
+    from quotecraft.core import TOOL_NAME, TOOL_VERSION
+except Exception:  # pragma: no cover
+    TOOL_NAME = "quotecraft"
+    TOOL_VERSION = "0.1.0"
+__version__ = TOOL_VERSION
