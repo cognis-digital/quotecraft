@@ -1,0 +1,34 @@
+title: Website Redesign & Build
+number: NW-2026-014
+client: Riverside Dental Group
+from: Northwind Studio LLC
+date: 2026-06-08
+valid_until: 2026-07-08
+currency: USD
+accent: "#1a5276"
+discount_pct: 10
+tax_rate: 8.25
+items:
+  - description: Discovery workshop & sitemap
+    qty: 1
+    unit: project
+    unit_price: 2500
+  - description: UX / UI design (responsive, 6 page templates)
+    qty: 1
+    unit: project
+    unit_price: 5200
+  - description: Front-end build & CMS integration
+    qty: 1
+    unit: project
+    unit_price: 4800
+  - description: Content migration
+    qty: 12
+    unit: hours
+    unit_price: 110
+  - description: Launch QA & training session
+    qty: 1
+    unit: project
+    unit_price: 430
+notes: |
+  50% deposit due on acceptance, balance due on launch. Quote valid for 30 days.
+  Includes two rounds of revisions per template. Hosting billed separately.

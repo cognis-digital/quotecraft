@@ -1,3 +1,7 @@
-from quotecraft.cli import main
+"""Entry point so `python -m quotecraft` works."""
 import sys
-sys.exit(main())
+
+from .cli import main
+
+if __name__ == "__main__":
+    sys.exit(main())
