@@ -1,0 +1,10 @@
+{
+  "name": "@cognis/quotecraft",
+  "version": "0.2.0",
+  "description": "JavaScript port of quotecraft (Cognis Neural Suite)",
+  "bin": {
+    "quotecraft": "index.js"
+  },
+  "license": "LicenseRef-COCL-1.0",
+  "type": "module"
+}
