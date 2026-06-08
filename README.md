@@ -36,9 +36,13 @@ agencies + consultants
 <a name="features"></a>
 ## Features
 
-- ✅ Todo
-- ✅ Fixme
-- ✅ Xxx
+- ✅ Parse Yaml
+- ✅ Build Proposal
+- ✅ Load Proposal
+- ✅ Compute Totals
+- ✅ Money
+- ✅ Render Text
+- ✅ Render Pdf
 - ✅ Runs on Linux/macOS/Windows · Docker · devcontainer
 - ✅ Ports in Python, JavaScript, Go, and Rust (`ports/`)
 
