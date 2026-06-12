@@ -16,7 +16,7 @@
 </div>
 
 ```bash
-pip install cognis-quotecraft
+pip install "git+https://github.com/cognis-digital/quotecraft.git"
 quotecraft scan .            # → prioritized findings in seconds
 ```
 
@@ -52,7 +52,7 @@ agencies + consultants
 ## Quick start
 
 ```bash
-pip install cognis-quotecraft
+pip install "git+https://github.com/cognis-digital/quotecraft.git"
 quotecraft --version
 quotecraft scan .                       # scan current project
 quotecraft scan . --format json         # machine-readable
