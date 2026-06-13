@@ -20,6 +20,12 @@ pip install "git+https://github.com/cognis-digital/quotecraft.git"
 quotecraft scan .            # → prioritized findings in seconds
 ```
 
+<!-- cognis:layman:start -->
+## What is this?
+
+QuoteCraft turns a simple text file into a professional PDF proposal, quote, or statement of work — the kind of document you send to clients before starting a project. You describe your services and prices in a structured text format (YAML), and QuoteCraft calculates the totals, applies any discount or tax, and produces a polished PDF ready to send. It runs entirely on your own computer with no sign-up, no monthly fee, and no cloud service involved — useful for freelancers, agencies, and consultants who want to automate client paperwork.
+<!-- cognis:layman:end -->
+
 ## Contents
 
 - [Why quotecraft?](#why) · [Features](#features) · [Quick start](#quick-start) · [Example](#example) · [Architecture](#architecture) · [AI stack](#ai-stack) · [How it compares](#how-it-compares) · [Integrations](#integrations) · [Install anywhere](#install-anywhere) · [Related](#related) · [Contributing](#contributing)
@@ -49,6 +55,42 @@ agencies + consultants
 <div align="right"><a href="#top">↑ back to top</a></div>
 
 <a name="quick-start"></a>
+<!-- cognis:install:start -->
+## Install
+
+`quotecraft` is source-available (not published to PyPI) — every method below installs
+straight from GitHub. Pick whichever you prefer; the one-line scripts auto-detect
+the best tool available on your machine.
+
+**One-liner (Linux / macOS):**
+```sh
+curl -fsSL https://raw.githubusercontent.com/cognis-digital/quotecraft/HEAD/install.sh | sh
+```
+
+**One-liner (Windows PowerShell):**
+```powershell
+irm https://raw.githubusercontent.com/cognis-digital/quotecraft/HEAD/install.ps1 | iex
+```
+
+**Or install manually — any one of:**
+```sh
+pipx install "git+https://github.com/cognis-digital/quotecraft.git"     # isolated (recommended)
+uv tool install "git+https://github.com/cognis-digital/quotecraft.git"  # uv
+pip install "git+https://github.com/cognis-digital/quotecraft.git"      # pip
+```
+
+**From source:**
+```sh
+git clone https://github.com/cognis-digital/quotecraft.git
+cd quotecraft && pip install .
+```
+
+Then run:
+```sh
+quotecraft --help
+```
+<!-- cognis:install:end -->
+
 ## Quick start
 
 ```bash
