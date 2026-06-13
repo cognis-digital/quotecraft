@@ -1,5 +1,4 @@
 """Smoke tests for QUOTECRAFT. Standard library only, no network."""
-import json
 import os
 import subprocess
 import sys
