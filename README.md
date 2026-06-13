@@ -20,6 +20,41 @@ pip install cognis-quotecraft
 quotecraft scan .            # → prioritized findings in seconds
 ```
 
+## Usage — step by step
+
+1. Install the CLI (Python 3.9+):
+
+   ```bash
+   pip install git+https://github.com/cognis-digital/quotecraft.git
+   ```
+
+2. Preview a YAML proposal as plain text before rendering:
+
+   ```bash
+   quotecraft preview proposal.yaml
+   ```
+
+3. Render the proposal to a branded PDF quote / SOW:
+
+   ```bash
+   quotecraft render proposal.yaml -o quote.pdf
+   ```
+
+4. Compute just the totals (e.g. to show numbers in JSON for another system):
+
+   ```bash
+   quotecraft --format json total proposal.yaml
+   ```
+
+5. Automate quote generation in CI / a pipeline:
+
+   ```yaml
+   - name: build quote PDF
+     run: |
+       pip install git+https://github.com/cognis-digital/quotecraft.git
+       quotecraft render proposal.yaml -o dist/quote.pdf
+   ```
+
 ## Contents
 
 - [Why quotecraft?](#why) · [Features](#features) · [Quick start](#quick-start) · [Example](#example) · [Architecture](#architecture) · [AI stack](#ai-stack) · [How it compares](#how-it-compares) · [Integrations](#integrations) · [Install anywhere](#install-anywhere) · [Related](#related) · [Contributing](#contributing)
