@@ -7,9 +7,20 @@ single-page (auto-paginating) PDF 1.4 document with no external libraries.
 from __future__ import annotations
 
 import datetime as _dt
+import os as _os
 from dataclasses import dataclass, field
 from decimal import Decimal, ROUND_HALF_UP, InvalidOperation
 from typing import Any
+
+# Identity — read from VERSION file next to the package root, fall back gracefully.
+try:
+    _VERSION_FILE = _os.path.join(
+        _os.path.dirname(_os.path.dirname(__file__)), "VERSION"
+    )
+    TOOL_VERSION = open(_VERSION_FILE, "r", encoding="utf-8").read().strip()
+except Exception:
+    TOOL_VERSION = "0.1.0"
+TOOL_NAME = "quotecraft"
 
 
 class QuoteError(Exception):
@@ -180,6 +191,15 @@ def _dec(value: Any, fieldname: str) -> Decimal:
         raise QuoteError(f"Invalid numeric value for {fieldname!r}: {value!r}")
 
 
+def _validated_rate(value: Decimal, fieldname: str) -> Decimal:
+    """Ensure a percentage value is in [0, 100]."""
+    if value < Decimal("0") or value > Decimal("100"):
+        raise QuoteError(
+            f"Invalid value for {fieldname!r}: {value} — must be between 0 and 100."
+        )
+    return value
+
+
 def build_proposal(data: dict) -> Proposal:
     if not isinstance(data, dict):
         raise QuoteError("Top-level YAML must be a mapping.")
@@ -223,8 +243,10 @@ def build_proposal(data: dict) -> Proposal:
         date=str(data.get("date", today) or today),
         valid_until=str(data.get("valid_until", "") or ""),
         notes=str(data.get("notes", "") or ""),
-        tax_rate=_dec(data.get("tax_rate", 0), "tax_rate"),
-        discount_pct=_dec(data.get("discount_pct", 0), "discount_pct"),
+        tax_rate=_validated_rate(_dec(data.get("tax_rate", 0), "tax_rate"), "tax_rate"),
+        discount_pct=_validated_rate(
+            _dec(data.get("discount_pct", 0), "discount_pct"), "discount_pct"
+        ),
         accent=str(data.get("accent", "#1a5276") or "#1a5276"),
     )
     prop.totals = compute_totals(prop)
@@ -232,8 +254,15 @@ def build_proposal(data: dict) -> Proposal:
 
 
 def load_proposal(path: str) -> Proposal:
-    with open(path, "r", encoding="utf-8") as fh:
-        data = parse_yaml(fh.read())
+    try:
+        with open(path, "r", encoding="utf-8") as fh:
+            text = fh.read()
+    except UnicodeDecodeError as exc:
+        raise QuoteError(
+            f"File {path!r} is not valid UTF-8. Save it as UTF-8 and retry."
+        ) from exc
+    # OSError / PermissionError propagate — caller (CLI) handles them.
+    data = parse_yaml(text)
     return build_proposal(data)
 
 

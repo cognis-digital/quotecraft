@@ -47,16 +47,18 @@ def _proposal_dict(prop) -> dict:
     }
 
 
-def _emit(payload: dict, fmt: str) -> None:
+def _emit(payload: dict, fmt: str, *, err: bool = False) -> None:
+    stream = sys.stderr if err else sys.stdout
     if fmt == "json":
-        print(json.dumps(payload, indent=2, default=_jsonable))
+        print(json.dumps(payload, indent=2, default=_jsonable), file=stream)
     else:
-        _emit_table(payload)
+        _emit_table(payload, err=err)
 
 
-def _emit_table(payload: dict) -> None:
+def _emit_table(payload: dict, *, err: bool = False) -> None:
+    stream = sys.stderr if err else sys.stdout
     if "error" in payload:
-        print(f"ERROR: {payload['error']}")
+        print(f"ERROR: {payload['error']}", file=stream)
         return
     if payload.get("action") == "render":
         print(f"Wrote {payload['bytes']} bytes to {payload['output']}")
@@ -115,10 +117,16 @@ def main(argv=None) -> int:
     try:
         prop = load_proposal(args.input)
     except FileNotFoundError:
-        _emit({"error": f"File not found: {args.input}"}, fmt)
+        _emit({"error": f"File not found: {args.input}"}, fmt, err=True)
+        return 2
+    except PermissionError as e:
+        _emit({"error": f"Permission denied reading {args.input}: {e}"}, fmt, err=True)
+        return 2
+    except OSError as e:
+        _emit({"error": f"Could not read {args.input}: {e}"}, fmt, err=True)
         return 2
     except QuoteError as e:
-        _emit({"error": str(e)}, fmt)
+        _emit({"error": str(e)}, fmt, err=True)
         return 1
 
     if args.command == "render":
@@ -128,7 +136,7 @@ def main(argv=None) -> int:
             with open(output, "wb") as fh:
                 fh.write(data)
         except OSError as e:
-            _emit({"error": f"Could not write output: {e}"}, fmt)
+            _emit({"error": f"Could not write output: {e}"}, fmt, err=True)
             return 2
         t = prop.totals
         _emit(
