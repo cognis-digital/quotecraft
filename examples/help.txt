@@ -1,0 +1,18 @@
+$ quotecraft-emit --help
+
+usage: quotecraft [-h] [--version] [--format {table,json}]
+                  {render,preview,total} ...
+
+QUOTECRAFT - turn a YAML proposal into a branded PDF quote / SOW.
+
+positional arguments:
+  {render,preview,total}
+    render              render a YAML proposal to a PDF file
+    preview             print a plain-text preview of the proposal
+    total               compute and show proposal totals only
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit
+  --format {table,json}
+                        output format for command results (default: table)

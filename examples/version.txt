@@ -1,0 +1,3 @@
+$ quotecraft-emit --version
+
+quotecraft 0.1.0
